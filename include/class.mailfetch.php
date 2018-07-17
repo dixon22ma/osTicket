@@ -66,7 +66,8 @@ class MailFetcher {
             $this->srvstr.='/novalidate-cert}';
 
         }
-
+        $this->logError("Host " . $this->ht);
+        $this->logError("Mail server string " . $this->srvstr);
         //Set timeouts
         if(function_exists('imap_timeout')) imap_timeout(1,20);
 
