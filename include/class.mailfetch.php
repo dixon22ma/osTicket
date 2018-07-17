@@ -117,8 +117,8 @@ class MailFetcher {
     /* Core */
 
     function connect() {
-        $this->logError($this->mbox);
-        $this->logError($this->ping());
+        $this->logError("MBox ".$this->mbox);
+        $this->logError("Ping".$this->ping());
         
         return true ;//($this->mbox && $this->ping())?$this->mbox:$this->open();
     }
