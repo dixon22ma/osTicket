@@ -66,9 +66,6 @@ class MailFetcher {
             $this->srvstr.='/novalidate-cert}';
 
         }
-        var_dump($this->ht);
-        $this->logError("Host " . $this->ht);
-        $this->logError("Mail server string " . $this->srvstr);
         //Set timeouts
         if(function_exists('imap_timeout')) imap_timeout(1,20);
 
@@ -119,19 +116,9 @@ class MailFetcher {
     /* Core */
 
     function connect() {
-        $this->logError($this->mbox);
-        $this->logError($this->mbox && $this->ping());
-        
         return ($this->mbox && $this->ping())?$this->mbox:$this->open();
     }
 
-    function logError($error) {
-        global $ost;
-        //NOTE: Admin alert override - don't email when having email trouble!
-        $ost->logError(_S('Mailer Error'), $error, true);
-    }
-    
-    
     
     function ping() {
         return ($this->mbox && imap_ping($this->mbox));
