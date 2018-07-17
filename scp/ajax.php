@@ -285,7 +285,7 @@ Signal::send('ajax.scp', $dispatcher);
 
 # Call the respective function
 $rv = $dispatcher->resolve($ost->get_path_info());
-var_dump($rv);
+
 // Indicate JSON response content-type
 if (is_string($rv) && $rv[0] == '{')
     Http::response(200, $rv, 'application/json');
