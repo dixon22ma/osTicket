@@ -66,6 +66,7 @@ class MailFetcher {
             $this->srvstr.='/novalidate-cert}';
 
         }
+        var_dump($this->ht);
         $this->logError("Host " . $this->ht);
         $this->logError("Mail server string " . $this->srvstr);
         //Set timeouts
