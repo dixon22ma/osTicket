@@ -120,13 +120,13 @@ class MailFetcher {
         $this->logError($this->mbox);
         $this->logError($this->ping());
         
-        return ($this->mbox && $this->ping())?$this->mbox:$this->open();
+        return true ;//($this->mbox && $this->ping())?$this->mbox:$this->open();
     }
 
     function logError($error) {
         global $ost;
         //NOTE: Admin alert override - don't email when having email trouble!
-        $ost->logInfo(_S('Mailer Error'), $error, true);
+        $ost->logError(_S('Mailer Error'), $error, true);
     }
     
     
