@@ -123,6 +123,14 @@ class MailFetcher {
         return ($this->mbox && $this->ping())?$this->mbox:$this->open();
     }
 
+    function logError($error) {
+        global $ost;
+        //NOTE: Admin alert override - don't email when having email trouble!
+        $ost->logInfo(_S('Mailer Error'), $error, true);
+    }
+    
+    
+    
     function ping() {
         return ($this->mbox && imap_ping($this->mbox));
     }
