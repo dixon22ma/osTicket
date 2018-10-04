@@ -4141,7 +4141,9 @@ implements RestrictedAccess, Threadable, Searchable {
         ) {
            $attachments = array();
            $message = $ticket->getLastMessage();
-           if ($cfg->emailAttachments()) {
+			// Dixon Martinez
+			//	Fix error $message was null
+           if ($cfg->emailAttachments() && $message != null) {
                $attachments = $message->getAttachments();
                if ($response && $response->getNumAttachments())
                  $attachments = $attachments->merge($response->getAttachments());
